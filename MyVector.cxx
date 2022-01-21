@@ -4,9 +4,9 @@
 template <class T>
 MyVector<T>::MyVector()
 {
-  size = 0;
-  capacity = 10;
-  data = new T[capacity];
+  mv_size = 0;
+  mv_capacity = 10;
+  data = new T[mv_capacity];
 }
 
 //destructor
@@ -20,19 +20,19 @@ MyVector<T>::~MyVector()
 template <class T>
 int MyVector<T>::size()
 {
-  return size;
+  return mv_size;
 }
 
 template <class T>
 int MyVector<T>::capacity()
 {
-  return capacity;
+  return mv_capacity;
 }
 
 template <class T>
 bool MyVector<T>::empty()
 {
-  if (size == 0)
+  if (mv_size == 0)
     return true;
   else
     return false;
@@ -41,13 +41,13 @@ bool MyVector<T>::empty()
 template <class T>
 void MyVector<T>::push_back(T item)
 {
-  if (size + 1 > capacity)
+  if (mv_size == mv_capacity)
   {
       //make the capacity bigger
-      capacity *= 2;
-      T* bigger_data = new T[capacity];
+      mv_capacity *= 2;
+      T* bigger_data = new T[mv_capacity];
 
-      for (int i = 0; i < size; i++)
+      for (int i = 0; i < mv_size; i++)
         bigger_data[i] = data[i];
 
       delete[] data;
@@ -55,8 +55,8 @@ void MyVector<T>::push_back(T item)
   }
 
   //add item to the end
-  size++;
-  data[size - 1] = item;
+  data[mv_size] = item;
+  mv_size++;
 }
 
 //more
@@ -64,8 +64,5 @@ void MyVector<T>::push_back(T item)
 template <class T>
 T& MyVector<T>::operator[] (int i)
 {
-  if (i >= size)
-    return 0;
-  else
-    return data[i];
+  return data[i];
 }
