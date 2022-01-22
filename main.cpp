@@ -44,4 +44,6 @@ int main()
 
   std::cout << "\nTesting the other functions" << '\n';
   std::cout << "v1.empty() = " << v1.empty() << '\n';
+
+  //test setting 
 }
