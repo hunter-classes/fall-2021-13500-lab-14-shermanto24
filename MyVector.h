@@ -10,7 +10,7 @@ public:
   int capacity();
   bool empty();
   void push_back(T item);
-  void pop_back(T n);
+  void pop_back(int n);
   void pop_back();
   void clear();
   T &operator[] (int i);

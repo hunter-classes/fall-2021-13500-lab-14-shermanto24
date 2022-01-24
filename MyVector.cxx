@@ -59,7 +59,49 @@ void MyVector<T>::push_back(T item)
   mv_size++;
 }
 
-//more
+template <class T>
+//removes data[n]
+void MyVector<T>::pop_back(int n)
+{
+  if (mv_size > 0 && n >= 0 && n < mv_size)
+  {
+    T* new_data = new T[mv_capacity];
+
+    //copying over the elements to the left of data[n]
+    for (int i = 0; i < n; i++)
+      new_data[i] = data[i];
+
+    //copying over the elements to the right of data[n]
+    //and skipping data[n]
+    for (int i = n; i < mv_size - 1; i++)
+      new_data[i] = data[i + 1];
+
+    delete[] data;
+    data = new_data;
+    mv_size--;
+  }
+}
+
+template <class T>
+//removes last element
+void MyVector<T>::pop_back()
+{
+  T* new_data = new T[mv_capacity];
+  for (int i = 0; i < mv_size - 1; i++)
+    new_data[i] = data[i];
+
+  delete[] data;
+  data = new_data;
+
+  mv_size--;
+}
+
+template <class T>
+void MyVector<T>::clear()
+{
+  delete[] data;
+  MyVector();
+}
 
 template <class T>
 T& MyVector<T>::operator[] (int i)
