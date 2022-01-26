@@ -104,21 +104,21 @@ TEST_CASE("empty(): false")
 TEST_CASE("pop_back(int n): n within range")
 {
   //ints
-  ints.pop_back(0);
-  CHECK(ints[0] == 2); //the next element
-  CHECK(ints.size() == 20); //one less than before
-
   ints.pop_back(19); //the last element
   CHECK(ints[18] == 19); //the new last element
-  CHECK(ints.size() == 19);
+  CHECK(ints.size() == 20);
+
+  ints.pop_back(0);
+  CHECK(ints[0] == 2); //the next element
+  CHECK(ints.size() == 19); //one less than before
 
   //strs
   strs.pop_back(12);
-  CHECK(strs[12] == 14);
+  CHECK(strs[12] == "14");
   CHECK(strs.size() == 20);
 
   strs.pop_back(3);
-  CHECK(strs[3] == 5);
+  CHECK(strs[3] == "5");
   CHECK(strs.size() == 19);
 }
 
@@ -135,7 +135,19 @@ TEST_CASE("pop_back(int n): n out of range")
   CHECK(bools.empty());
 }
 
-TEST_CASE("operator[] tests with both assigning and accessing")
+TEST_CASE("pop_back(): size > 0")
+{
+
+}
+
+TEST_CASE("pop_back(): size == 0")
+{
+  /*
+  bools.pop_back();
+  CHECK(bools.empty());*/
+}
+
+TEST_CASE("[]: both assigning and accessing")
 {
   //ints
   //assigning
@@ -145,10 +157,6 @@ TEST_CASE("operator[] tests with both assigning and accessing")
   //accessing
   CHECK(ints[0] == 10);
   CHECK(ints[1] == 100);
-  CHECK(ints[2] == 3);
-
-  CHECK(ints[9] == 10);
-  CHECK(ints[12] == 13);
 
   //strs
   //assigning
@@ -160,7 +168,4 @@ TEST_CASE("operator[] tests with both assigning and accessing")
   CHECK(strs[0] == "Hello");
   CHECK(strs[1] == " ");
   CHECK(strs[2] == "World!");
-
-  CHECK(strs[5] == "6");
-  CHECK(strs[20] == "21");
 }
