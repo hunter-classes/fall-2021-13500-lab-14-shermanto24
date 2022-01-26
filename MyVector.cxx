@@ -102,7 +102,10 @@ template <class T>
 void MyVector<T>::clear()
 {
   delete[] data;
-  MyVector();
+  mv_size = 0;
+  //the capacity isn't changed
+  //since std::vector's clear() doesn't change the capacity
+  data = new T[mv_capacity];
 }
 
 template <class T>

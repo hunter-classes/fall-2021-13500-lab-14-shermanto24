@@ -67,5 +67,20 @@ int main()
     std::cout << v1[i] << ' ';
   std::cout << "\nv1.size() = " << v1.size() << '\n';
 
+  //testing clear()
+  std::cout << "\n--- Testing clear() ---\n" << '\n';
+
+  std::cout << "Before v1.clear():" << '\n';
+  std::cout << "v1.size() = " << v1.size() << '\n';
+  std::cout << "v1.capacity() = " << v1.capacity() << '\n';
+  std::cout << "v1.empty() = " << v1.empty() << '\n';
+
+  v1.clear();
+
+  std::cout << "\nAfter v1.clear():" << '\n';
+  std::cout << "v1.size() = " << v1.size() << '\n';
+  std::cout << "v1.capacity() = " << v1.capacity() << '\n';
+  std::cout << "v1.empty() = " << v1.empty() << '\n';
+
   //test setting
 }
