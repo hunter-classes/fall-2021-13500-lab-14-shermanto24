@@ -63,7 +63,7 @@ template <class T>
 //removes data[n]
 void MyVector<T>::pop_back(int n)
 {
-  if (mv_size > 0 && n >= 0 && n < mv_size)
+  if (n >= 0 && n < mv_size)
   {
     T* new_data = new T[mv_capacity];
 

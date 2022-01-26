@@ -16,13 +16,13 @@ TEST_CASE("Constructor tests")
   CHECK(strs.capacity() == 10);
 }
 
-TEST_CASE("empty() tests (true)")
+TEST_CASE("empty(): true")
 {
   CHECK(ints.empty());
   CHECK(strs.empty());
 }
 
-TEST_CASE("size(), capacity(), push_back() and operator[] tests")
+TEST_CASE("size(), capacity(), push_back(T item) and operator[] (accessing) tests")
 {
   //testing the functions on ints while size <= 10
   for (int i = 0; i < 10; i++)
@@ -95,15 +95,47 @@ TEST_CASE("size(), capacity(), push_back() and operator[] tests")
   CHECK(strs.capacity() == 40);
 }
 
-TEST_CASE("empty() tests (false)")
+TEST_CASE("empty(): false")
 {
   CHECK(!ints.empty());
   CHECK(!strs.empty());
 }
 
-//more
+TEST_CASE("pop_back(int n): n within range")
+{
+  //ints
+  ints.pop_back(0);
+  CHECK(ints[0] == 2); //the next element
+  CHECK(ints.size() == 20); //one less than before
 
-TEST_CASE("operator[] tests")
+  ints.pop_back(19); //the last element
+  CHECK(ints[18] == 19); //the new last element
+  CHECK(ints.size() == 19);
+
+  //strs
+  strs.pop_back(12);
+  CHECK(strs[12] == 14);
+  CHECK(strs.size() == 20);
+
+  strs.pop_back(3);
+  CHECK(strs[3] == 5);
+  CHECK(strs.size() == 19);
+}
+
+TEST_CASE("pop_back(int n): n out of range")
+{
+  ints.pop_back(-1);
+  CHECK(ints.size() == 19);
+
+  strs.pop_back(20);
+  CHECK(strs.size() == 19);
+
+  MyVector<bool> bools;
+  bools.pop_back(0);
+  CHECK(bools.empty());
+}
+
+TEST_CASE("operator[] tests with both assigning and accessing")
 {
   //ints
   //assigning
