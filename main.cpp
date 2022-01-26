@@ -17,9 +17,10 @@ int main()
 
   //testing push_back()
   std::cout << "\n--- Testing push_back() (and size(), capacity(), & empty()) ---\n" << '\n';
+
   std::cout << "Adding elements using push_back" << '\n';
   std::cout << "v1 = ";
-  for (int i = 0; i < 10; i++)
+  for (int i = 0; i < v1.capacity(); i++)
   {
     v1.push_back(i);
     std::cout << v1[i] << ' ';
@@ -82,5 +83,16 @@ int main()
   std::cout << "v1.capacity() = " << v1.capacity() << '\n';
   std::cout << "v1.empty() = " << v1.empty() << '\n';
 
-  //test setting
+  //testing the operator []
+  std::cout << "\n--- Testing [] ---\n" << '\n';
+
+  std::cout << "Assigning and accessing elements using []" << '\n';
+
+  std::cout << "v1 = ";
+  for (int i = 0; i < v1.capacity(); i++)
+  {
+    v1[i] = i;
+    std::cout << v1[i] << ' ';
+  }
+  std::cout << '\n';
 }

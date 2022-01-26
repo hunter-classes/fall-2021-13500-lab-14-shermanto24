@@ -106,11 +106,11 @@ TEST_CASE("empty() tests (false)")
 TEST_CASE("operator[] tests")
 {
   //ints
-  //setting
+  //assigning
   ints[0] = 10;
   ints[1] = 100;
 
-  //getting
+  //accessing
   CHECK(ints[0] == 10);
   CHECK(ints[1] == 100);
   CHECK(ints[2] == 3);
@@ -119,12 +119,12 @@ TEST_CASE("operator[] tests")
   CHECK(ints[12] == 13);
 
   //strs
-  //setting
+  //assigning
   strs[0] = "Hello";
   strs[1] = " ";
   strs[2] = "World!";
 
-  //getting
+  //accessing
   CHECK(strs[0] == "Hello");
   CHECK(strs[1] == " ");
   CHECK(strs[2] == "World!");
