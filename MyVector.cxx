@@ -86,14 +86,16 @@ template <class T>
 //removes last element
 void MyVector<T>::pop_back()
 {
-  T* new_data = new T[mv_capacity];
-  for (int i = 0; i < mv_size - 1; i++)
-    new_data[i] = data[i];
+  if (mv_size > 0)
+  {
+    T* new_data = new T[mv_capacity];
+    for (int i = 0; i < mv_size - 1; i++)
+      new_data[i] = data[i];
 
-  delete[] data;
-  data = new_data;
-
-  mv_size--;
+    delete[] data;
+    data = new_data;
+    mv_size--;
+  }
 }
 
 template <class T>

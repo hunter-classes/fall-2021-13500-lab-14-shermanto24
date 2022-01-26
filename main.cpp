@@ -45,19 +45,27 @@ int main()
   std::cout << "v1 before pop_back(3) = ";
   for (int i = 0; i < v1.size(); i++)
     std::cout << v1[i] << ' ';
-  std::cout << "\nv1[10] = " << v1[10] << '\n';
+  std::cout << "\nv1.size() = " << v1.size() << '\n';
 
   v1.pop_back(3);
   std::cout << "\nv1 after pop_back(3) = ";
   for (int i = 0; i < v1.size(); i++)
     std::cout << v1[i] << ' ';
-  std::cout << "\nv1[10] = " << v1[10] << '\n';
+  std::cout << "\nv1.size() = " << v1.size() << '\n';
 
   //testing pop_back()
   std::cout << "\n--- Testing pop_back() ---\n" << '\n';
+
+  std::cout << "v1 before pop_back() = ";
+  for (int i = 0; i < v1.size(); i++)
+    std::cout << v1[i] << ' ';
+  std::cout << "\nv1.size() = " << v1.size() << '\n';
+
   v1.pop_back();
-  //FIX THIS
-  std::cout << "v1[10] after pop_back = " << v1[10] << '\n';
+  std::cout << "\nv1 after pop_back() = ";
+  for (int i = 0; i < v1.size(); i++)
+    std::cout << v1[i] << ' ';
+  std::cout << "\nv1.size() = " << v1.size() << '\n';
 
   //test setting
 }
