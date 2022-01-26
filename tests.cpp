@@ -104,8 +104,8 @@ TEST_CASE("empty(): false")
 TEST_CASE("pop_back(int n): n within range")
 {
   //ints
-  ints.pop_back(19); //the last element
-  CHECK(ints[18] == 19); //the new last element
+  ints.pop_back(20); //the last element
+  CHECK(ints[19] == 20); //the new last element
   CHECK(ints.size() == 20);
 
   ints.pop_back(0);
@@ -122,6 +122,8 @@ TEST_CASE("pop_back(int n): n within range")
   CHECK(strs.size() == 19);
 }
 
+MyVector<bool> bools;
+
 TEST_CASE("pop_back(int n): n out of range")
 {
   ints.pop_back(-1);
@@ -130,22 +132,34 @@ TEST_CASE("pop_back(int n): n out of range")
   strs.pop_back(20);
   CHECK(strs.size() == 19);
 
-  MyVector<bool> bools;
   bools.pop_back(0);
   CHECK(bools.empty());
 }
 
 TEST_CASE("pop_back(): size > 0")
 {
+  ints.pop_back();
+  CHECK(ints[17] == 19);
+  CHECK(ints.size() == 18);
 
+  ints.pop_back();
+  CHECK(ints[16] == 18);
+  CHECK(ints.size() == 17);
+
+  strs.pop_back();
+  CHECK(strs[17] == "20");
+
+  strs.pop_back();
+  CHECK(strs[16] == "19");
 }
 
 TEST_CASE("pop_back(): size == 0")
 {
-  /*
   bools.pop_back();
-  CHECK(bools.empty());*/
+  CHECK(bools.empty());
 }
+
+//clear() tests are at the end
 
 TEST_CASE("[]: both assigning and accessing")
 {
@@ -168,4 +182,22 @@ TEST_CASE("[]: both assigning and accessing")
   CHECK(strs[0] == "Hello");
   CHECK(strs[1] == " ");
   CHECK(strs[2] == "World!");
+}
+
+TEST_CASE("clear() tests")
+{
+  ints.clear();
+  CHECK(ints.size() == 0);
+  CHECK(ints.capacity() == 40);
+  CHECK(ints.empty());
+
+  strs.clear();
+  CHECK(strs.size() == 0);
+  CHECK(strs.capacity() == 40);
+  CHECK(strs.empty());
+
+  bools.clear();
+  CHECK(bools.size() == 0);
+  CHECK(bools.capacity() == 10);
+  CHECK(bools.empty());
 }
